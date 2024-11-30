@@ -35,8 +35,8 @@ fi
 case "${OBS_MAJ_VER}" in
     30)
         if [ -d "${BUILDS_DIR}/Builds/obs-builder-${DISTRO}/root/obs-${OBS_MAJ_VER}" ]; then
-            cp -v "${BUILDS_DIR}/Builds/obs-builder-${DISTRO}/root/obs-${OBS_MAJ_VER}/obs-portable-${OBS_VER}"*-ubuntu-"${DISTRO_VER}${SUFFIX}".* artefacts/
-            chown "${SUDO_USER}":"${SUDO_USER}" "artefacts/obs-portable-${OBS_VER}"*-ubuntu-"${DISTRO_VER}${SUFFIX}".*
+            cp -v ${BUILDS_DIR}/Builds/obs-builder-${DISTRO}/root/obs-${OBS_MAJ_VER}/obs-portable-${OBS_VER}*-ubuntu-"${DISTRO_VER}${SUFFIX}".* artefacts/
+            chown "${SUDO_USER}":"${SUDO_USER}" artefacts/obs-portable-${OBS_VER}*-ubuntu-"${DISTRO_VER}${SUFFIX}".*
         fi;;
     *) echo "ERROR! Unsupported OBS Studio version: ${OBS_VER}"
        exit 1;;
