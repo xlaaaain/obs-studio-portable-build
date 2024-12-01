@@ -74,9 +74,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        for artefact in "artefacts/obs-portable-${{ matrix.version }}"*; do
-          gh release upload "${{ github.ref }}" "${artefact}" --clobber
-        done
+        find artefacts/ -type f -name "obs-portable-${{ matrix.version }}*" -exec gh release upload "${{ github.ref }}" {} --clobber \;
+
 
   publish-release:
     name: Publish release
