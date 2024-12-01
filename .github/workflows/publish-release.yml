@@ -3,6 +3,7 @@ name: Build 🏗️ and Publish 📦 release
 on:
   push:
     tags: ['*']
+  workflow_dispatch:
 
 jobs:
   create-release:
