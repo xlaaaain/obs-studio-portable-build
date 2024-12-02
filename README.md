@@ -1,5 +1,5 @@
 # THIS VERSION IS NOT TESTED AND OBS IS NOT UP TO DATE WITH THE LATEST VERSION (latest 30.2.3, this image 30.0.2) USE AT YOUR OWN RISK
-## This repo will not be maintained regularly due to my schedule. If you find any issues please submit a report [here](https://github.com/xlaaaain/obs-studio-portable-build/issues) or submit a pull request if you'd like to contribute. I will do my best to look after any submitted issues and PRs but I cannot guarantee that I'll be able to respond in a timely manner. All credit for this container goes to the team at Universal Blue for originally creating the container.
+## This repo will not be maintained regularly due to my schedule. If you find any issues please submit a report [here](https://github.com/xlaaaain/obs-studio-portable-build/issues) or submit a pull request if you'd like to contribute. I will do my best to look after any submitted issues and PRs but I cannot guarantee that I'll be able to respond in a timely manner. All credit for this repo goes to wimpy for originally putting piecing it all together.
 
 <h1 align="center">
   <img src="https://avatars1.githubusercontent.com/u/7725691?v=3&s=256" alt="OBS Studio">
