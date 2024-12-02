@@ -1,3 +1,6 @@
+# THIS VERSION IS NOT TESTED AND OBS IS NOT UP TO DATE WITH THE LATEST VERSION (latest 30.2.3, this image 30.0.2) USE AT YOUR OWN RISK
+## This repo will not be maintained regularly due to my schedule. If you find any issues please submit a report [here](https://github.com/xlaaaain/obs-studio-portable-build/issues) or submit a pull request if you'd like to contribute. I will do my best to look after any submitted issues and PRs but I cannot guarantee that I'll be able to respond in a timely manner. All credit for this container goes to the team at Universal Blue for originally creating the container.
+
 <h1 align="center">
   <img src="https://avatars1.githubusercontent.com/u/7725691?v=3&s=256" alt="OBS Studio">
   <br />
@@ -30,16 +33,18 @@
 
 Running OBS Studio in Portable Mode means all settings (Profiles and Scene Collections) are saved within the same directory tree as the OBS Studio executables, plugins, and configuration. You can copy the whole folder to another computer and use it.
 
-[OBS Studio Portable is also a container image](https://github.com/ublue-os/obs-studio-portable) for [Distrobox](https://distrobox.it/), so you can run OBS Studio Portable on *any Linux distro*.
+[OBS Studio Portable is also a container image](https://github.com/xlaaaain/obs-studio-portable) for [Distrobox](https://distrobox.it/), so you can run OBS Studio Portable on *any Linux distro*.
 
 ## Supported Features
 
-| Ubuntu Release         | OBS Studio | SRT | RIST | Plugins | Scripts | Themes |
-| ---------------------- | ---------- | --- | ---- | ------- | ------- | ------ |
-| Ubuntu 20.04 (Focal)   | EOL        |                                         |
-| Ubuntu 22.04 (Jammy)   | 30.0.2     | ❌  | ❌   | 54      | 2       | 2      |
-| Ubuntu 23.04 (Lunar)   | 30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
-| Ubuntu 23.10 (Mantic)  | 30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
+| Ubuntu Release         | Supported? |OBS Studio | SRT | RIST | Plugins | Scripts | Themes |
+| ---------------------- | ---------- |---------- | --- | ---- | ------- | ------- | ------ |
+| Ubuntu 20.04 (Focal)   | EOL        |  EOL        |                                         |
+| Ubuntu 22.04 (Jammy)   | Fix needed |  30.0.2     | ❌  | ❌   | 54      | 2       | 2      |
+| Ubuntu 23.04 (Lunar)   | EOL        |  30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
+| Ubuntu 23.10 (Mantic)  | EOL        |  30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
+| Ubuntu 24.04 (Noble)   | ✅          |  30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
+| Ubuntu 24.04 (Noble)   | Fix needed |  30.0.2     | ✅  | ✅   | 54      | 2       | 2      |
 
 # Install
 
@@ -49,7 +54,7 @@ You can safely install these OBS Studio Portable builds alongside [`.deb`](https
 
 The installation process is simple:
 
-- **[Download the tarball (and sha256 hash) of OBS Studio Portable](https://github.com/wimpysworld/obs-studio-portable/releases)** for the version of Ubuntu you're running.
+- **[Download the tarball (and sha256 hash) of OBS Studio Portable](https://github.com/xlaaaain/obs-studio-portable/releases)** for the version of Ubuntu you're running.
   - **Builds are specific to an Ubuntu release!**
 - Extract the tarball somewhere.
 - Run `obs-dependencies`, included in the tarball, to make sure the runtime requirements for OBS Studio are satisfied.
@@ -57,8 +62,8 @@ The installation process is simple:
   - **You must use the `obs-portable` launcher** to ensure OBS Studio finds all the associated libraries and add-ons.
 
 ```bash
-wget "https://github.com/wimpysworld/obs-studio-portable/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2"
-wget "https://github.com/wimpysworld/obs-studio-portable/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2.sha256"
+wget "https://github.com/xlaaaain/obs-studio-portable/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2"
+wget "https://github.com/xlaaaain/obs-studio-portable/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2.sha256"
 sha256sum -c obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2.sha256
 tar xvf obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2
 cd obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs)
@@ -74,22 +79,26 @@ If anything doesn't work correctly when you start the new OBS Studio, continue u
 ## Distrobox (*any Linux*)
 
 You can use [Distrobox](https://distrobox.it/) to run OBS Studio Portable on *any Linux 🐧 distro*.
-The container image for OBS Studio Portable is maintained under the umbrella of the [Universal Blue](https://universal-blue.org/) project.
+~~The container image for OBS Studio Portable is maintained under the umbrella of the [Universal Blue](https://universal-blue.org/) project.~~
 
-- **[OBS Studio Portable for Linux](https://github.com/ublue-os/obs-studio-portable)**
+- ~~**[OBS Studio Portable for Linux](https://github.com/ublue-os/obs-studio-portable)**~~
+
+I've released a new container image for OBS Studio Portable as the Universal Blue image is now deprecated. Use at your own risk.
+
+- **[OBS Studio Portable for  Linux](https://github.com/xlaaaain/obs-studio-portable)**
 
 **The portable nature of OBS Studio Portable is redefined when using Distrobox.**
 - *"portable"* now means you can run OBS Studio Portable on any Linux distro, not just Ubuntu.
 - The OBS Studio configuration is exposed in your home directory on the host via the `~/.config/obs-portable` directory.
 - Launching multiple instances of OBS Studio Portable containers is not recommended as the configuration location is shared.
 
-**Running a single instance of OBS Studio Portable works great!** I am currently using OBS Studio Portable this way on NixOS ❄️
+**Running a single instance of OBS Studio Portable works great!** I am currently using OBS Studio Portable this way on Bazzite
 
 1. Install Distrobox (*1.4.2.1 or newer*) and Podman (*recommended*) or Docker.
 2. Create a Distrobox container for OBS Studio Portable.
 
 ```bash
-distrobox create --image ghcr.io/ublue-os/obs-studio-portable:latest --name obs --pull
+distrobox create --image ghcr.io/xlaaaain/obs-studio-portable:latest --name obs --pull
 ```
 ### NVIDIA support
 
@@ -104,7 +113,7 @@ Therefore, if you are running an older version of Distrobox or the NVIDIA driver
 Required if the display is rendered by an NVIDIA GPU.
 
 ```bash
-distrobox create --image ghcr.io/ublue-os/obs-studio-portable:latest --name obs --pull --additional-packages nvidia-driver-535
+distrobox create --image ghcr.io/xlaaaain/obs-studio-portable:latest --name obs --pull --additional-packages nvidia-driver-535
 ```
 
 #### NVIDIA compute only
@@ -112,7 +121,7 @@ distrobox create --image ghcr.io/ublue-os/obs-studio-portable:latest --name obs 
 Suitable for multi-GPU systems where the NVIDIA GPU is not rendering the display and is only being used for compute.
 
 ```bash
-distrobox create --image ghcr.io/ublue-os/obs-studio-portable:latest --name obs --pull --additional-packages libnvidia-encode-535 nvidia-headless-no-dkms-535
+distrobox create --image ghcr.io/xlaaaain/obs-studio-portable:latest --name obs --pull --additional-packages libnvidia-encode-535 nvidia-headless-no-dkms-535
 
 3. Run the initial setup.
 
@@ -137,7 +146,7 @@ For example:
 ```bash
 mkdir ~/OBS-Studio-again
 cd ~/OBS-Studio-again
-wget "https://github.com/wimpysworld/obs-studio-portable/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2"
+wget "https://github.com/xlaaaain/obs-studio-portable-build/releases/download/r23365/obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2"
 tar xvf obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs).tar.bz2
 cd obs-portable-30.0.2-r23365-ubuntu-$(lsb_release -rs)
 ```
@@ -154,6 +163,7 @@ I'm incredibly thankful to the OBS Studio developers and developers of the growi
 These Portable builds of OBS Studio for Ubuntu celebrate the best of what's available. Thank you! 🙇
 
 Here are the 3rd party plugins that come bundled with OBS Studio Portable for Ubuntu:
+- **Plugins will be removed/added/replaced as needed subject to OBS updates**
 
 ## Audio 🔉
 
